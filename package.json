@@ -176,7 +176,7 @@
     "@types/throng": "^5.0.4",
     "@types/uuid": "^9.0.1",
     "@types/webpack": "^4.41.33",
-    "@types/yargs": "^17.0.22",
+    "@types/yargs": "^17.0.24",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
     "@typescript-eslint/parser": "^5.55.0",
     "babel-jest": "^29.5.0",
