@@ -30,7 +30,7 @@ class Favourite < ApplicationRecord
 
     if self.content.present? && self.content.start_with?(":") && self.content.end_with?(":") then
       if self.content.count(":") != 2 then
-        errors.add(self.content, 'Invalid emoji code')
+        errors.add(self.content, I18n.t('reactions.errors.unrecognized_emoji'))
       else
         @tag = CustomEmoji.from_text(self.content)[0]
       end
