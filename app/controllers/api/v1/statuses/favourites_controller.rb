@@ -8,7 +8,7 @@ class Api::V1::Statuses::FavouritesController < Api::BaseController
   before_action :set_status, only: [:create]
 
   def create
-    FavouriteService.new.call(current_account, @status)
+    FavouriteService.new.call(current_account, @status, favorite_params)
     render json: @status, serializer: REST::StatusSerializer
   end
 
@@ -35,5 +35,9 @@ class Api::V1::Statuses::FavouritesController < Api::BaseController
     authorize @status, :show?
   rescue Mastodon::NotPermittedError
     not_found
+  end
+
+  def favorite_params
+    params.permit(:content)
   end
 end

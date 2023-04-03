@@ -8,14 +8,15 @@ class FavouriteService < BaseService
   # @param [Account] account
   # @param [Status] status
   # @return [Favourite]
-  def call(account, status)
+  def call(account, status, options = {})
     authorize_with account, status, :favourite?
+    content = options[:content] || nil
 
     favourite = Favourite.find_by(account: account, status: status)
 
     return favourite unless favourite.nil?
 
-    favourite = Favourite.create!(account: account, status: status)
+    favourite = Favourite.create!(account: account, status: status, content: content)
 
     Trends.statuses.register(status)
 
