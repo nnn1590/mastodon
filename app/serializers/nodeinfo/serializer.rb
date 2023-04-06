@@ -38,7 +38,7 @@ class NodeInfo::Serializer < ActiveModel::Serializer
   end
 
   def metadata
-    {}
+    { themeColor: "#33b5e5" }
   end
 
   private
