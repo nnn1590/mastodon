@@ -20,7 +20,7 @@ class StatusesIndex < Chewy::Index
     },
     analyzer: {
       content: {
-        tokenizer: 'uax_url_email',
+        tokenizer: 'kuromoji_tokenizer',
         filter: %w(
           english_possessive_stemmer
           lowercase
